@@ -1,5 +1,13 @@
 $(document).ready(function() {
   window.dancers = [];
+  // lineup button on click function event for each dancer in window.dancers... 
+  //apply (lineup/callback)
+  $('.lineUpButton').on('click', function(event) {
+    for( var i = 0; i < window.dancers.length; i++){
+      let currentDancer = window.dancers[i];
+      currentDancer.lineup();
+    }
+  });
 
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
@@ -22,7 +30,7 @@ $(document).ready(function() {
 
     // make a dancer with a random position
 
-    var dancer = dancerMakerFunction(
+    var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
       Math.random() * 1000
@@ -31,3 +39,4 @@ $(document).ready(function() {
   });
 });
 
+ 
